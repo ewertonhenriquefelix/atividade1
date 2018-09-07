@@ -1,0 +1,59 @@
+<body>
+    <style>
+        body{
+            background-color: rgb(141, 179, 194);
+        }
+        p{
+            color:beige;
+            font-family: Courier New, Courier, monospace;
+            font-size:2em;
+        }
+    </style>
+
+<form>
+    <p>Solicite um Orcamento</p>    
+    <label>CEP: <input type="text" id="campo_cep"></label>
+        <br/>
+        <label>Rua: <input type="text" id="campo_rua"></label>
+        <br/>
+        <label>Cidade: <input type="text" id="campo_cidade"></label>
+        <br/>
+        <button type="button">Selecionar CEP</button>
+        <div>
+            <label for="name">Nome:</label>
+            <input type="text" id="name" />
+        </div>
+        <div>
+            <label for="mail">E-mail:</label>
+            <input type="email" id="mail" />
+        </div>
+        <div>
+            <label for="msg">Mensagem:</label>
+            <textarea id="msg"></textarea>
+        </div>
+        <div class="button">
+            <button type="submit">Enviar sua mensagem</button>
+        </div>
+    </form>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function(){
+            $("#campo_cep").change(function(){
+
+                cep = $("#campo_cep").val();
+                url = "https://viacep.com.br/ws/"+cep+"/json";
+                fetch(url)
+                    .then(function(response) {
+                        return response.json();
+                    })
+                    .then(function(data) {
+                        $("#campo_rua").val(data.logradouro);
+                        $("#campo_cidade").val(data.localidade);    
+                    });            
+            });
+        });
+    </script>
+     <li> <a href=C:\Users\Frankstein\Desktop\Proj1\projetogit\atividade1\index.html>volta</a> </li>
+</body>

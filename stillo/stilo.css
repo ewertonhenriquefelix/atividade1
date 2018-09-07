@@ -1,0 +1,9 @@
+p {
+    font-style: italic;
+    font-weight:bold;
+    color:  red;
+}
+
+p:hover{
+    text-decoration: underline;
+}
